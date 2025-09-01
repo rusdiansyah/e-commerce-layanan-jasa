@@ -7,6 +7,7 @@ use App\Livewire\Dashboard;
 use App\Livewire\Favicon;
 use App\Livewire\HomePage;
 use App\Livewire\HomePage\CardPaketDetail;
+use App\Livewire\JenisPaketFilter;
 use App\Livewire\JenisPaketList;
 use App\Livewire\Login;
 use App\Livewire\LogoHome;
@@ -31,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomePage::class)->middleware('guest')->name('homepage');
 Route::get('/paket-detail/{id}', CardPaketDetail::class)->middleware('guest')->name('paket-detail');
+Route::get('/jenis-paket/{id}', JenisPaketFilter::class)->middleware('guest')->name('jenis-paket');
 
 Route::get('/login', Login::class)->middleware('guest')->name('login');
 Route::get('/register', Register::class)->middleware('guest')->name('register');

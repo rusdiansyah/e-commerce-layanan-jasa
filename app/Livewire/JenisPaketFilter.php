@@ -2,28 +2,33 @@
 
 namespace App\Livewire;
 
+use App\Models\JenisPaket;
 use App\Models\Paket;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class HomePage extends Component
+class JenisPaketFilter extends Component
 {
     use WithPagination;
     #[Layout('components.layouts.front-end')]
-    #[Title('Home Page')]
-    public $title = 'Home Page';
+    #[Title('Jenis Paket')]
+    public $title = 'Jenis Paket';
     public $paginate = 10;
-    public function mount()
+    public $id;
+    public function mount($id)
     {
-        $this->title;
+        $jenis = JenisPaket::findOrFail($id);
+        $this->title.' '.$jenis->nama;
+        $this->id = $id;
     }
     public function render()
     {
         $data = Paket::where('isActive', 1)
+        ->where('jenis_paket_id',$this->id)
             ->paginate($this->paginate);
-        return view('livewire.home-page',[
+        return view('livewire.jenis-paket-filter',[
             'data' => $data
         ]);
     }
