@@ -15,7 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
     'link_url' => 'https://deddydev.com',
-    'programmer' => 'Deddy Rusdiansyah,M.Kom',
+    'programmer' => '210839.upg.ac.id',
     'warna' => 'success',
 
     /*
